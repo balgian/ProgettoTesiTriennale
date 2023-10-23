@@ -10,12 +10,9 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     for i=1:size(MovTime,2)
         boxchart(MovTime(:,i),'MarkerStyle','none','BoxFaceColor',colors(i),'XData',i*ones(size(MovTime,1),1),"MarkerStyle","o","MarkerColor",colors(i));
     end 
-    tmp_mean = mean(MovTime,"omitmissing");
-    plot(tmp_mean,"_","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
-    tmp_std = std(MovTime,"omitmissing");
-    tmp_pos_var = tmp_mean + tmp_std;
-    tmp_neg_var = tmp_mean - tmp_std;
-    patch([1:length(tmp_mean) fliplr(1:length(tmp_mean))], [tmp_neg_var fliplr(tmp_pos_var)], 'g','FaceAlpha',.3)
+    plot(mean(MovTime,"omitmissing"),"_","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
+    plot(mean(MovTime,"omitmissing")+std(MovTime,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
+    plot(mean(MovTime,"omitmissing")-std(MovTime,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     hold off
     ax = gca;
     ax.XAxis.Categories = categorical(1:size(MovTime,2));
@@ -35,6 +32,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     end
     plot(mean(EucError_1s,"omitmissing"),"_","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     plot(mean(EucError_1s,"omitmissing")+std(EucError_1s,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
+    plot(mean(EucError_1s,"omitmissing")-std(EucError_1s,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     hold off
     ax = gca;
     ax.XAxis.Categories = categorical(1:size(EucError_1s,2));
@@ -54,6 +52,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     end
     plot(mean(linIndex,"omitmissing"),"_","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     plot(mean(linIndex,"omitmissing")+std(linIndex,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
+    plot(mean(linIndex,"omitmissing")-std(linIndex,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     hold off
     ax = gca;
     ax.XAxis.Categories = categorical(1:size(linIndex,2));
@@ -73,6 +72,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     end
     plot(mean(AspectRatio,"omitmissing"),"_","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     plot(mean(AspectRatio,"omitmissing")+std(AspectRatio,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
+    plot(mean(AspectRatio,"omitmissing")-std(AspectRatio,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     hold off
     ax = gca;
     ax.XAxis.Categories = categorical(1:size(AspectRatio,2));
@@ -113,6 +113,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     end
     plot(mean(dir_error,"omitmissing"),"_","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     plot(mean(dir_error,"omitmissing")+std(dir_error,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
+    plot(mean(dir_error,"omitmissing")-std(dir_error,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     hold off
     ax = gca;
     ax.XAxis.Categories = categorical(1:size(dir_error,2));
@@ -132,6 +133,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     end
     plot(mean(ext_error,"omitmissing"),"_","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     plot(mean(ext_error,"omitmissing")+std(ext_error,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
+    plot(mean(ext_error,"omitmissing")-std(ext_error,"omitmissing"),"*","Color",'r','LineStyle','none','LineWidth',1,"MarkerSize",9.2)
     hold off
     ax = gca;
     ax.XAxis.Categories = categorical(1:size(ext_error,2));
