@@ -27,8 +27,8 @@ columns_name = string(file.Properties.VariableNames);
 
 % Calculate first subject metrics
 [MovTime_target,EucError_1s_target,linIndex_target,AspectRatio_target,totjerk_target,dir_error_target,ext_error_target] = filemetrics(file);
-fig = plotmetrics(append("Subjects nose and shoulders: Metrics of subject ",erase(choosenfiles(1),["S","_PracticeLog.txt"])),MovTime_target,EucError_1s_target,linIndex_target,AspectRatio_target,totjerk_target,dir_error_target,ext_error_target);
-fig.Visible = 'on';
+% fig = plotmetrics(append("Subjects nose and shoulders: Metrics of subject ",erase(choosenfiles(1),["S","_PracticeLog.txt"])),MovTime_target,EucError_1s_target,linIndex_target,AspectRatio_target,totjerk_target,dir_error_target,ext_error_target);
+% fig.Visible = 'on';
 
 % Mean of first subject's blocks
 [MovTime_block,EucError_1s_block,linIndex_block,AspectRatio_block,totjerk_block,dir_error_block,ext_error_block] = deal(NaN(length(choosenfiles),file.block(end)));

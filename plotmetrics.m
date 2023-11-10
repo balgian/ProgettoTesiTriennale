@@ -9,7 +9,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     hold on
     for i=1:size(MovTime,2)
         b(i) = boxchart(MovTime(:,i),'MarkerStyle','none','BoxFaceColor',colors(i),'XData',i*ones(size(MovTime,1),1));
-        scatter(i+0.5,MovTime(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeColor',colors(i),'jitter','on','JitterAmount',0.05, 'MarkerFaceAlpha', 0.5);
+        scatter(i+0.5,MovTime(:,i),'MarkerFaceColor',colors(i), 'MarkerEdgeAlpha', 0, 'MarkerFaceAlpha', 0.5);
     end
     hold off
     ylim([min(quantile(MovTime,0.25)-1.5*iqr(MovTime)) max(quantile(MovTime,0.75)+1.5*iqr(MovTime))]);
@@ -28,7 +28,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     hold on
     for i=1:size(EucError_1s,2)
         boxchart(EucError_1s(:,i),'MarkerStyle','none','BoxFaceColor',colors(i),'XData',i*ones(size(EucError_1s,1),1));
-        scatter(i+0.5,EucError_1s(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeColor',colors(i),'jitter','on','JitterAmount',0.05, 'MarkerFaceAlpha', 0.5);
+        scatter(i+0.5,EucError_1s(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeAlpha', 0, 'MarkerFaceAlpha', 0.5);
     end
     hold off
     ylim([min(quantile(EucError_1s,0.25)-1.5*iqr(EucError_1s)) max(quantile(EucError_1s,0.75)+1.5*iqr(EucError_1s))]);
@@ -47,7 +47,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     hold on
     for i=1:size(linIndex,2)
         boxchart(linIndex(:,i),'MarkerStyle','none','BoxFaceColor',colors(i),'XData',i*ones(size(linIndex,1),1));
-        scatter(i+0.5,linIndex(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeColor',colors(i),'jitter','on','JitterAmount',0.05, 'MarkerFaceAlpha', 0.5);
+        scatter(i+0.5,linIndex(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeAlpha', 0, 'MarkerFaceAlpha', 0.5);
     end
     hold off
     ylim([min(quantile(linIndex,0.25)-1.5*iqr(linIndex)) max(quantile(linIndex,0.75)+1.5*iqr(linIndex))]);
@@ -66,7 +66,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     hold on
     for i=1:size(AspectRatio,2)
         boxchart(AspectRatio(:,i),'MarkerStyle','none','BoxFaceColor',colors(i),'XData',i*ones(size(AspectRatio,1),1));
-        scatter(i+0.5,AspectRatio(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeColor',colors(i),'jitter','on','JitterAmount',0.05, 'MarkerFaceAlpha', 0.5);
+        scatter(i+0.5,AspectRatio(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeAlpha', 0, 'MarkerFaceAlpha', 0.5);
     end
     hold off
     ylim([min(quantile(AspectRatio,0.25)-1.5*iqr(AspectRatio)) max(quantile(AspectRatio,0.75)+1.5*iqr(AspectRatio))]);
@@ -86,7 +86,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     hold on
     for i=1:size(totjerk,2)
         boxchart(totjerk(:,i),'MarkerStyle','none','BoxFaceColor',colors(i),'XData',i*ones(size(totjerk,1),1));
-        scatter(i+0.5,totjerk(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeColor',colors(i),'jitter','on','JitterAmount',0.05, 'MarkerFaceAlpha', 0.5);
+        scatter(i+0.5,totjerk(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeAlpha', 0, 'MarkerFaceAlpha', 0.5);
     end
     hold off
     ylim([min(quantile(totjerk,0.25)-1.5*iqr(totjerk)) max(quantile(totjerk,0.75)+1.5*iqr(totjerk))]);
@@ -105,7 +105,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     hold on
     for i=1:size(dir_error,2)
         boxchart(dir_error(:,i),'MarkerStyle','none','BoxFaceColor',colors(i),'XData',i*ones(size(dir_error,1),1));
-        scatter(i+0.5,dir_error(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeColor',colors(i),'jitter','on','JitterAmount',0.05, 'MarkerFaceAlpha', 0.5);
+        scatter(i+0.5,dir_error(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeAlpha', 0, 'MarkerFaceAlpha', 0.5);
     end
     hold off
     ylim([min(quantile(dir_error,0.25)-1.5*iqr(dir_error)) max(quantile(dir_error,0.75)+1.5*iqr(dir_error))]);
@@ -124,7 +124,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     hold on
     for i=1:size(ext_error,2)
         boxchart(ext_error(:,i),'MarkerStyle','none','BoxFaceColor',colors(i),'XData',i*ones(size(ext_error,1),1));
-        scatter(i+0.5,ext_error(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeColor',colors(i),'jitter','on','JitterAmount',0.05, 'MarkerFaceAlpha', 0.5);
+        scatter(i+0.5,ext_error(:,i), 'filled' ,'MarkerFaceColor',colors(i), 'MarkerEdgeAlpha', 0, 'MarkerFaceAlpha', 0.5);
     end
     hold off
     ylim([min(quantile(ext_error,0.25)-1.5*iqr(ext_error)) max(quantile(ext_error,0.75)+1.5*iqr(ext_error))]);
