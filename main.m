@@ -19,7 +19,7 @@ choosenfiles = choosenfiles(contains(choosenfiles,"_PracticeLog.txt"));
 choosenfilesbis = choosenfiles(contains(choosenfiles,"Bis"));
 choosenfiles = choosenfiles(~contains(choosenfiles, choosenfilesbis));
 
-% Nose and shoulders------------------------------------------------------
+%% Nose and shoulders------------------------------------------------------
 % Import first table
 file = append("..\SubjectsData\Practice\",choosenfiles(1));
 file = readtable(file);
@@ -27,7 +27,6 @@ columns_name = string(file.Properties.VariableNames);
 
 % Calculate first subject metrics
 [MovTime_target,EucError_1s_target,linIndex_target,AspectRatio_target,totjerk_target,dir_error_target,ext_error_target] = filemetrics(file);
-
 fig = plotmetrics(append("Subjects nose and shoulders: Metrics of subject ",erase(choosenfiles(1),["S","_PracticeLog.txt"])),MovTime_target,EucError_1s_target,linIndex_target,AspectRatio_target,totjerk_target,dir_error_target,ext_error_target);
 fig.Visible = 'on';
 
@@ -85,7 +84,7 @@ fig.Visible = 'on';
 fig = plotmetrics("Subjects nose and shoulders: Average metrics for each block",MovTime_block,EucError_1s_block,linIndex_block,AspectRatio_block,totjerk_block,dir_error_block,ext_error_block);
 fig.Visible = 'on';
 
-% Shoulders---------------------------------------------------------------
+%% Shoulders---------------------------------------------------------------
 % Import first table
 file = append("..\SubjectsData\Practice\",choosenfilesbis(11));
 file = readtable(file);
@@ -146,7 +145,7 @@ AspectRatio_target = AspectRatio_target/i;
 totjerk_target = totjerk_target/i;
 dir_error_target = dir_error_target/i;
 ext_error_target = ext_error_target/i;
-clearvars i tmpMovTime tmpEucError_1s tmplinIndex tmpAspectRatio tmptotjerk tmpdir_error tmpext_error file choosenfilesbis
+clearvars tmpMovTime tmpEucError_1s tmplinIndex tmpAspectRatio tmptotjerk tmpdir_error tmpext_error file choosenfilesbis
 
 fig = plotmetrics("Subjects shoulders: Average metrics for each target",MovTime_target,EucError_1s_target,linIndex_target,AspectRatio_target,totjerk_target,dir_error_target,ext_error_target);
 fig.Visible = 'on';

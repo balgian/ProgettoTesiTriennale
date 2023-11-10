@@ -35,8 +35,6 @@ function [MovTime,EucError_1s,linIndex,AspectRatio,totjerk,dir_error,ext_error] 
     [MovTime,EucError_1s,linIndex,AspectRatio,totjerk,dir_error,ext_error] = deal(NaN(max_rows,columns));
     clear max_rows
 
-    %Scrivi l'if
-
     % Preparing cells for metrics
     num_elements = sum(ischange(file.trial) & file.block == 1)+1;
     [MovTime(1:num_elements,1),EucError_1s(1:num_elements,1),linIndex(1:num_elements,1),AspectRatio(1:num_elements,1), totjerk(1:num_elements,1), dir_error(1:num_elements,1),ext_error(1:num_elements,1)] = deal(0);
