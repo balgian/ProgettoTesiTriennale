@@ -6,6 +6,7 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     groupname = {'A','B','B','B','B','A','B','B','B','B','A'};
     colors = ["#0072BD","#9C9C9C"];
     colors = colors(findgroups(groupname));
+    b = NaN(size(MovTime,2),1);
     hold on
     for i=1:size(MovTime,2)
         b(i) = boxchart(MovTime(:,i),'MarkerStyle','none','BoxFaceColor',colors(i),'XData',i*ones(size(MovTime,1),1));
@@ -137,4 +138,5 @@ function [fig] = plotmetrics(FigName,MovTime,EucError_1s,linIndex,AspectRatio,to
     set(gca, 'Position', [0.79, 0.07, 0.195, 0.4]);
     
     legend(b, {'Initial Test', 'Training 1', 'Training 2', 'Training 3', 'Training 4', 'Mid Test', 'Training 5', 'Training 6', 'Training 7', 'Training 8', 'Final Test'}, 'NumColumns',3, 'Position',[-0.073, 0.846, 0.4118, 0.1350])
+    clear b
 end
